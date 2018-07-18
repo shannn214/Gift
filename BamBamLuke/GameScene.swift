@@ -57,7 +57,11 @@ class GameScene: SKScene {
     
     let luke = SKSpriteNode(imageNamed: "Luke")
     
+    let amountLabel = SKLabelNode(fontNamed: "Menlo")
+    
     var childrenDestroyed = 0
+    
+    var amountOfHit = "0 / 30"
     
     override func didMove(to view: SKView) {
         
@@ -93,7 +97,11 @@ class GameScene: SKScene {
     
     func addDeadChildren() {
         
-        let children = SKSpriteNode(imageNamed: "QShannn")
+        let randomIndex = Int(arc4random_uniform(6))
+        
+        let childrenArray = ["QShannn", "AB", "Sam", "Aaron", "Dj", "RY"]
+        
+        let children = SKSpriteNode(imageNamed: childrenArray[randomIndex])
         
         let actualY = random(min: children.size.height / 2,
                              max: size.height - children.size.height / 2)
@@ -113,8 +121,8 @@ class GameScene: SKScene {
         
         children.physicsBody?.collisionBitMask = PhysicsCategory.none
         
-        let actualDuration = random(min: CGFloat(2.0),
-                                    max: CGFloat(4.0))
+        let actualDuration = random(min: CGFloat(1.0),
+                                    max: CGFloat(3.0))
         
         let actionMove = SKAction.move(to: CGPoint(x: -children.size.width / 2, y: actualY), duration: TimeInterval(actualDuration))
         
@@ -132,20 +140,37 @@ class GameScene: SKScene {
     
     func enidDidCollideWithChildren(enidAttack: SKSpriteNode, children: SKSpriteNode) {
         
-        print("AHHHHHHHHH!!!")
+//        print("AHHHHHHHHH!!!")
         
         enidAttack.removeFromParent()
         
         children.removeFromParent()
-            
+        
+        amountLabel.removeFromParent()
+        
         childrenDestroyed += 1
-        if childrenDestroyed > 30 {
+        
+        if childrenDestroyed > 15 {
             
-            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+            let reveal = SKTransition.fade(withDuration: 0.5)
             let gameOverScene = GameOverScene(size: self.size, won: true)
             view?.presentScene(gameOverScene, transition: reveal)
+            
+            print("Dear Luke \n 來 school 走過這趟最幸福的事大概就是能碰到你來當我們的 mentor 了 \n 真的真的在帶我們的過程中 \n 講了很多不只是只有程式相關的觀念 \n 總是會忍不住多推我們一把 \n 雖然心裡很清楚這樣變得有點依賴 \n 但還是覺得哇怎麼那ㄇ愛打嘴砲啊不4 \n 覺得能遇到 Luke 真好 \n 希望自己以後能夠讓你驕傲 \n 也希望自己能讓別人知道我的 mentor Luke 是個很厲害的人 \n 謝謝你<3 \n\n Luke 小迷妹 \n 尚靖")
         
         }
+        
+        amountOfHit = "\(childrenDestroyed) / 30"
+        
+        amountLabel.text = amountOfHit
+        
+        amountLabel.fontSize = 15
+        
+        amountLabel.fontColor = SKColor.lightGray
+        
+        amountLabel.position = CGPoint(x: size.width * 0.1, y: size.height * 0.35)
+        
+        addChild(amountLabel)
         
     }
     

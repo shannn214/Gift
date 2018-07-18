@@ -14,7 +14,7 @@ class GameOverScene: SKScene {
         
         backgroundColor = SKColor.white
         
-        let message = won ? "You Won!" : "BuBuBu~~ You Lose "
+        let message = won ? "log" : "BuBuBu~~ 路～可～ 怎ㄇ寫～"
         
         let label = SKLabelNode(fontNamed: "Menlo")
         label.text = message
@@ -27,7 +27,7 @@ class GameOverScene: SKScene {
             SKAction.wait(forDuration: 3.0),
             SKAction.run() { [weak self] in
                 guard let `self` = self else { return }
-                let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+                let reveal = SKTransition.fade(withDuration: 0.5)
                 let scene = GameScene(size: size)
                 self.view?.presentScene(scene, transition:reveal)
             }

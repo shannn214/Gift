@@ -150,13 +150,13 @@ class GameScene: SKScene {
         
         childrenDestroyed += 1
         
-        if childrenDestroyed > 15 {
+        if childrenDestroyed > 29 {
             
             let reveal = SKTransition.fade(withDuration: 0.5)
             let gameOverScene = GameOverScene(size: self.size, won: true)
             view?.presentScene(gameOverScene, transition: reveal)
             
-            print("Dear Luke \n 來 school 走過這趟最幸福的事大概就是能碰到你來當我們的 mentor 了 \n 真的真的在帶我們的過程中 \n 講了很多不只是只有程式相關的觀念 \n 總是會忍不住多推我們一把 \n 雖然心裡很清楚這樣變得有點依賴 \n 但還是覺得哇怎麼那ㄇ愛打嘴砲啊不4 \n 覺得能遇到 Luke 真好 \n 希望自己以後能夠讓你驕傲 \n 也希望自己能讓別人知道我的 mentor Luke 是個很厲害的人 \n 謝謝你<3 \n\n Luke 小迷妹 \n 尚靖")
+            print("Dear Luke \n 來 school 走過這趟最幸福的事大概就是能碰到你來當我們的 mentor 了 \n 很喜歡聽你講你對選擇或看待事物的想法 \n 在帶我們的過程中 \n 分享了很多不只是只有程式相關的觀念 \n 總是會忍不住多推我們一把 \n 雖然心裡很清楚這樣變得有點依賴 \n 但還是覺得哇怎麼那ㄇ愛打嘴砲啊不4 \n 覺得能遇到 Luke 真好 \n 希望自己以後能夠讓你驕傲 \n 也希望自己能讓別人知道我的 mentor Luke 是個很厲害的人 \n 謝謝你一直以來的幫助<3 \n\n Lukeの小迷妹 \n 尚靖")
         
         }
         

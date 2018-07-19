@@ -14,7 +14,7 @@ class GameOverScene: SKScene {
         
         backgroundColor = SKColor.white
         
-        let message = won ? "log" : "BuBuBu~~ 路～可～ 怎ㄇ寫～"
+        let message = won ? "Log" : "BuBuBu~~ 路～可～ 怎ㄇ寫～"
         
         let label = SKLabelNode(fontNamed: "Menlo")
         label.text = message

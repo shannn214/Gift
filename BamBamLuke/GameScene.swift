@@ -78,7 +78,7 @@ class GameScene: SKScene {
         run(SKAction.repeatForever(
                 SKAction.sequence([
                     SKAction.run(addDeadChildren),
-                    SKAction.wait(forDuration: 1.0)
+                    SKAction.wait(forDuration: 0.2)
                     ])
         ))
     }
@@ -97,9 +97,9 @@ class GameScene: SKScene {
     
     func addDeadChildren() {
         
-        let randomIndex = Int(arc4random_uniform(6))
+        let childrenArray = ["QShannn", "AB", "Sam", "Aaron", "Dj", "RY", "FK", "BR"]
         
-        let childrenArray = ["QShannn", "AB", "Sam", "Aaron", "Dj", "RY"]
+        let randomIndex = Int(arc4random_uniform(UInt32(childrenArray.count)))
         
         let children = SKSpriteNode(imageNamed: childrenArray[randomIndex])
         
